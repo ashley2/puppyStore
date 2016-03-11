@@ -41,6 +41,7 @@ router.post('/', (req, res) => {
 })
 router.delete('/:id', function(req, res){
   var id = req.params.id; 
+  console.log('id', id)
   Puppy.delete(id, function(err){
     if(err){
       res.status(400).send(err);

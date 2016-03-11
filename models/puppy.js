@@ -49,10 +49,10 @@ exports.put = function(editPuppy, cb){
 
 exports.delete = function(id, cb)  {
   this.get((err, puppies) => {
-    console.log('passed')
+    console.log('export1')
     var length = puppies.length
     puppies = puppies.filter(function(viewPuppy){
-      console.log('second')
+      console.log('export2')
       return viewPuppy.id !== id;
     });
     if(length === puppies.length) {

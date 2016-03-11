@@ -18,6 +18,7 @@ app.controller('puppyCtrl', function($scope, PuppyService){
     PuppyService.create($scope.newPuppy)
     .then(function(res){
       $scope.puppies.push(res.data)
+      $scope.newPuppy = {}
     }, function(err){
       console.log(err)
     }); 
@@ -46,11 +47,14 @@ app.controller('puppyCtrl', function($scope, PuppyService){
 
 
 
-  $scope.deletePuppy = function(viewPuppy){
-    PuppyService.delete(viewPuppy)
-    .then(function(){
+  $scope.deletePuppy = function(puppy){
+    console.log(1)
+    PuppyService.delete(puppy)
+    console.log(2)
+    .then(function(puppy){
     //success
-    var index = $scope.puppies.indexOf(viewPuppy);
+    console.log(3)
+    var index = $scope.puppies.indexOf(puppy);
     $scope.puppies.splice(index, 1);
 
   }, function(err){
@@ -59,11 +63,3 @@ app.controller('puppyCtrl', function($scope, PuppyService){
   }
 })
 
-// $scope.editShoe = function(shoe){
-//   $scope.shoeToEdit = angular.copy(shoe); ///makes it so you dont change the original 
-//     // $scope.editingShoe = true;
-// } 
-// $scope.cancelEdit = function(shoe){
-//   $scope.shoeToEdit = null
-
-// });

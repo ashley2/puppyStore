@@ -22,11 +22,11 @@
 <body ng-app="puppyApp" ng-controller="puppyCtrl">
 
   <div id="header">Puppys That Need Love <i class="fa fa-paw fa-2x"></i></div>
-  <div id="directions"></div>
+  <div id="directions">Below are the pupies that are waiting for a good home!  The pet fee includes a starter kit.</div>
 
   <div id="mainPage" ng-hide="viewPuppy">
     <div id="inputContainer">
-      <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo" ng-init="newPuppy.photo">
+      <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo">
       <input type="text" placeholder="Name" ng-model="newPuppy.name">
       <input type="number" placeholder="Price" ng-model="newPuppy.price">
       <button id="addPuppy" ng-click="addPuppy()">Add Puppy</button>
@@ -44,10 +44,10 @@
         </thead>
         <tbody>
           <tr ng-repeat="puppy in puppies track by $index">
-            <td><img ng-src="newPuppy.photo">{{puppy.photo}}"></td>
-            <td>{{puppy.name}}</td>
-            <td>{{puppy.price | currency}}</td>
-            <td>
+            <td><img ng-src="{{puppy.photo}}"></td>
+            <td id=tableName>{{puppy.name}}</td>
+            <td id=tablePrice>{{puppy.price | currency}}</td>
+            <td id="seeMore">
               <button ng-click="seeMore(puppy)">View More</button>
             </td>
           </tr>
@@ -56,30 +56,32 @@
     </div>
   </div>
 
-<div id="container2">
-  <div id="detailView" ng-show="viewPuppy">
-    <div id="detailHeader">Details</div>
-    <div class="row">
-      <input id="image" type="img" placeholder="Puppy Picture" ng-model="viewPuppy.photo">
-      <div id="photo"></div>
-      <label for="">Name:</label>
-      <input id="name" type="text" placeholder="Name" ng-model="viewPuppy.name">
-      <label for="">Price:</label>
-      <input id="price" type="number" placeholder="Price" ng-model="viewPuppy.price">
-    </div>
-    <div class="row">
-      <label for="">Age:</label>
-      <input id=age"" type="number" placeholder="Age" ng-model="viewPuppy.age">
-      <label for="">Breed:</label>
-      <input id="breed" type="text" placeholder="Breed" ng-model="viewPuppy.breed">
-      <label for="">Size:</label>
-      <input id="size" type="number" placeholder="Size" ng-model="viewPuppy.size">
-    </div>
-    <button id="delete" ng-click="deletePuppy(viewPuppy.id)">
-    Delete</button>
-    <button ng-click="update(viewPuppy)">Save</button>
+  <div id="container2">
+    <div id="detailView" ng-show="viewPuppy">
+      <div id="detailHeader">Details</div>
+      <div class="row">
+        <input id="image" type="img" placeholder="Puppy Picture" ng-model="viewPuppy.photo">
+        <label for="">Name:</label>
+        <input id="name" type="text" placeholder="Name" ng-model="viewPuppy.name">
+        <label for="">Price:</label>
+        <input id="price" type="number" placeholder="Price" ng-model="viewPuppy.price">
+      </div>
+      <div class="row">
+       <img id="photo" ng-src="{{viewPuppy.photo}}">
+       <label for="">Age: (weeks)</label>
+       <input id=age"" type="number" placeholder="Age" ng-model="viewPuppy.age">
+       <label for="">Breed:</label>
+       <input id="breed" type="text" placeholder="Breed" ng-model="viewPuppy.breed">
+     </div>
+     <div class="row">
+     <label for="">Size (lbs):</label>
+       <input id="size" type="number" placeholder="Size" ng-model="viewPuppy.size">
+     </div>
+     <button id="delete" ng-click="deletePuppy(viewPuppy.id)">
+      Delete</button>
+      <button ng-click="update(viewPuppy)">Save</button>
 
-    <button ng-click="seeLess()">See Less</button>
+      <button ng-click="seeLess()">See Less</button>
+    </div>
   </div>
-</div>
 

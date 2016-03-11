@@ -12,8 +12,10 @@ app.service('PuppyService', function($http){
     return $http.post('/puppies', newPuppy);
   }
 
-  this.delete = function() {
-   return $http.delete(`/puppies/${viewPuppy.id}`)
+  this.delete = function(puppy) {
+    console.log('delpuppy', puppy)
+   return $http.delete(`/puppies/${puppy.id}`)
+
 
  };
 

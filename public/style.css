@@ -14,7 +14,11 @@
 
 #header {
   font-size: 30px;
-  margin: 50px 0 20px 0;
+  margin-top: 50px;
+}
+
+#directions {
+  margin-bottom: 20px;
 }
 
 #inputContainer {
@@ -32,9 +36,19 @@ td, tr, tbody {
   background-color: lightgray;
 }
 
-#phoho, #name, #price, #age, #breed, #size {
+#tableName {
+  width: 40px;
+  vertical-align: middle;
+}
+#tablePrice, #seeMore {
+  vertical-align: middle;
+}
+
+#photo, #name, #price, #age, #breed, #size {
   margin: 10px;
 }
+
+
 
 button {
   border-radius: 10px;
@@ -76,6 +90,11 @@ margin-bottom: 25px;
 
 #container2 {
  width: 100%;
+}
+
+img {
+  height:100px;
+  width: 100px;
 }
 
 
