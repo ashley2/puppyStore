@@ -18,7 +18,7 @@
 
 </head>
 
-<body ng-app="myApp" ng-controller="mainCtrl">
+<body ng-app="puppyApp" ng-controller="puppyCtrl">
 
   <div id="header">Puppys That Need Love</div>
   <div id="directions"></div>
@@ -27,7 +27,7 @@
   <div id="inputContainer">
     <input type="text" placeholder="Name" ng-model="newPuppy.name">
     <input type="number" placeholder="Price" ng-model="newPuppy.price">
-    <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo">
+    <!-- <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo"> -->
     <button id="addPuppy" ng-click="addPuppy()">Add Puppy</button>
   </div>
 
@@ -38,16 +38,15 @@
           <th>Photo</th>
           <th>Name</th>
           <th>Price</th>
-          <!-- <th>Remove</th> -->
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="pupppy in puppies track by $index">
-          <td>{{puppy.photo}}</td>
+          <!-- <td>{{puppy.photo}}</td> -->
           <td>{{puppy.name}}</td>
           <td>{{puppy.price | currency}}</td>
           <td>
-            <button id="delete" ng-click="deleteTrans(trans.id)" class="btn">
+            <button id="delete" ng-click="deletePuppy(puppy.id)" class="btn">
               <span class="glyphicon glyphicon-remove"></span>
             </button>
           </td>
@@ -73,7 +72,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="pupppy in puppies track by $index">
-          <td>{{puppy.photo}}</td>
+          <!-- <td>{{puppy.photo}}</td> -->
           <td>{{puppy.name}}</td>
           <td>{{puppy.price | currency}}</td>
           <td>

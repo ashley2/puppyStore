@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/transaction', require('./routes/trans'));
+app.use('/puppy', require('./routes/puppy'));
 
 var server = http.createServer(app);
 
