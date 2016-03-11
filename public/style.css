@@ -4,6 +4,9 @@
   font-family: 'Raleway', sans-serif;
 }
 
+body {
+  height: 100vh;
+}
 .table {
   width: 60%;
   margin: 0 auto;
@@ -11,14 +14,15 @@
   margin-left: 230px;
 } 
 
-
 #header {
   font-size: 30px;
   margin-top: 50px;
+  color: #346392;
 }
 
 #directions {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  color: #346392;
 }
 
 #inputContainer {
@@ -48,7 +52,27 @@ td, tr, tbody {
   margin: 10px;
 }
 
+#delete {
+  border-radius: 10px;
+  color: #fff;
+  background-color: #346392;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+  transition: background-color 2s ease;
+}
 
+#delete:hover {
+  background-color: #6496c8;
+  text-shadow: -1px 1px #27496d;
+}
+
+#delete:active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+#delete:focus {
+  outline: none;
+}
 
 button {
   border-radius: 10px;
@@ -56,6 +80,7 @@ button {
   background-color: #6496c8;
   text-shadow: -1px 1px #417cb8;
   border: none;
+  transition: background-color 2s ease;
 }
 
 button:hover,
@@ -74,8 +99,10 @@ button:focus {
 }
 
 #detailHeader {
-font-size: 30px;
-margin-bottom: 25px;
+  font-size: 30px;
+  margin-bottom: 25px;
+  color: darkblue;
+  text-shadow: -1px 3px lightblue;
 }
 
 #detailView {
@@ -85,7 +112,7 @@ margin-bottom: 25px;
   margin: auto 0;
   text-align: center;
   box-shadow: 10px 10px 5px #888888;
-  margin-left: 300px;
+  margin-left: 330px;
 }
 
 #container2 {
@@ -95,9 +122,14 @@ margin-bottom: 25px;
 img {
   height:100px;
   width: 100px;
+  box-shadow: 10px 10px 5px #888888;
 }
 
-.card {
-  width: 50%;
-}
+input {
+    border: 0;
+    margin: 10px;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #346392;
+  }
 
