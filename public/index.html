@@ -20,40 +20,32 @@
 
 <body ng-app="myApp" ng-controller="mainCtrl">
 
-  <div id="header">How Poor Are You?</div>
-  <div id="directions">Please enter a positive value when adding money for credits and a negetive value when withdrawling money for debits.</div>
+  <div id="header">Puppys That Need Love</div>
+  <div id="directions"></div>
 
-  <div id="balance"><label for="Balance">Balance: </label>{{balance | currency}}</div>
-  <div>{{phrase}}</div>
 
   <div id="inputContainer">
-    <input type="date" ng-model="newTrans.date">
-    <input type="number" placeholder="Value" ng-model="newTrans.value">
-    <input type="text" placeholder="Description" ng-model="newTrans.desc">
-    <button id="addTrans" ng-click="addTrans()">Add Transaction</button>
+    <input type="text" placeholder="Name" ng-model="newPuppy.name">
+    <input type="number" placeholder="Price" ng-model="newPuppy.price">
+    <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo">
+    <button id="addPuppy" ng-click="addPuppy()">Add Puppy</button>
   </div>
 
   <div id="container">
     <table class="table table-responsive table-bordered">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Credits</th>
-          <th>Debits</th>
-          <th>Remove</th>
-
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Price</th>
+          <!-- <th>Remove</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="trans in transactions track by $index">
-          <td>{{trans.date.toDateString()}}</td>
-          <td>{{trans.desc}}</td>
-          <td>{{trans.credit | currency}}</td>
-          <td>{{trans.debit | currency}}</td>
-          <!-- <td>
-            <button id='update' ng-click="updateContact($index)" data-toggle="modal" data-target="#myModal"><span class="glyphicons glyphicons-edit">Edit</span></button>
-          </td> -->
+        <tr ng-repeat="pupppy in puppies track by $index">
+          <td>{{puppy.photo}}</td>
+          <td>{{puppy.name}}</td>
+          <td>{{puppy.price | currency}}</td>
           <td>
             <button id="delete" ng-click="deleteTrans(trans.id)" class="btn">
               <span class="glyphicon glyphicon-remove"></span>
@@ -62,5 +54,38 @@
         </tr>
       </tbody>
     </table>  
-
   </div>
+
+<div id="detailView" ng-show="detailView">
+  <div id="detailHeader">Details</div>
+  <table class="table table-responsive table-bordered">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <th>Breed</th>
+          <th>Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pupppy in puppies track by $index">
+          <td>{{puppy.photo}}</td>
+          <td>{{puppy.name}}</td>
+          <td>{{puppy.price | currency}}</td>
+          <td>
+          </td>
+        </tr>
+        <tr ng-repeat="puppy in puppies track by $index">
+          <td>{{puppy.age}}</td>
+          <td>{{puppy.breed}}</td>
+          <td>{{puppy.size}}</td>
+        </tr>
+      </tbody>
+    </table>  
+</div>
+
+
