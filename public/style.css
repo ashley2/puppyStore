@@ -1,0 +1,81 @@
+* {
+  text-align: center;
+  /*color: white;*/
+  font-family: 'Raleway', sans-serif;
+}
+
+.table {
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 10px 10px 5px #888888;
+  margin-left: 230px;
+} 
+
+
+#header {
+  font-size: 30px;
+  margin: 50px 0 20px 0;
+}
+
+#inputContainer {
+  margin-bottom: 30px;
+}
+
+th {
+  background-color: lightblue;
+  text-align: center;
+  color: white;
+}
+
+td, tr, tbody {
+  color: #4c4c4cff;
+  background-color: lightgray;
+}
+
+#phoho, #name, #price, #age, #breed, #size {
+  margin: 10px;
+}
+
+button {
+  border-radius: 10px;
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+}
+
+button:hover,
+button.hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+button:active,
+button.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+button:focus {
+  outline: none;
+}
+
+#detailHeader {
+font-size: 30px;
+margin-bottom: 25px;
+}
+
+#detailView {
+  background-color: lightgray;
+  width: 600px;
+  padding: 15px;
+  margin: auto 0;
+  text-align: center;
+  box-shadow: 10px 10px 5px #888888;
+  margin-left: 300px;
+}
+
+#container2 {
+ width: 100%;
+}
+
+

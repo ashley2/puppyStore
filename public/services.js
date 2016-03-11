@@ -4,7 +4,7 @@ var app = angular.module('puppyApp');
 
 app.service('PuppyService', function($http){
 
-  this.fetch = function(){
+  this.getAll = function(){
     return $http.get('/puppies')
   };
 
@@ -12,24 +12,15 @@ app.service('PuppyService', function($http){
     return $http.post('/puppies', newPuppy);
   }
 
-  this.remove = function() {
-   return $http.delete(`/puppies/${puppy.id}`)
+  this.delete = function() {
+   return $http.delete(`/puppies/${viewPuppy.id}`)
 
  };
 
  this.update = function(editPuppy){
-
+    return $http.put('/puppies', editPuppy);
 };
 })
-// app.factory('shoeFactory', function($http){
-//   return {
-//     fetch: function(){
-//         return $http.get('/puppies');
-//     },
-//     create: function(){
-
-//     }
-//   }
 
 
 

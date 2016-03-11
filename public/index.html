@@ -6,6 +6,7 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -20,71 +21,65 @@
 
 <body ng-app="puppyApp" ng-controller="puppyCtrl">
 
-  <div id="header">Puppys That Need Love</div>
+  <div id="header">Puppys That Need Love <i class="fa fa-paw fa-2x"></i></div>
   <div id="directions"></div>
 
+  <div id="mainPage" ng-hide="viewPuppy">
+    <div id="inputContainer">
+      <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo" ng-init="newPuppy.photo">
+      <input type="text" placeholder="Name" ng-model="newPuppy.name">
+      <input type="number" placeholder="Price" ng-model="newPuppy.price">
+      <button id="addPuppy" ng-click="addPuppy()">Add Puppy</button>
+    </div>
 
-  <div id="inputContainer">
-    <input type="text" placeholder="Name" ng-model="newPuppy.name">
-    <input type="number" placeholder="Price" ng-model="newPuppy.price">
-    <!-- <input type="img" placeholder="Puppy Picture" ng-model="newPuppy.photo"> -->
-    <button id="addPuppy" ng-click="addPuppy()">Add Puppy</button>
+    <div id="container">
+      <table class="table table-responsive table-bordered">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>See More</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="puppy in puppies track by $index">
+            <td><img ng-src="newPuppy.photo">{{puppy.photo}}"></td>
+            <td>{{puppy.name}}</td>
+            <td>{{puppy.price | currency}}</td>
+            <td>
+              <button ng-click="seeMore(puppy)">View More</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>
   </div>
 
-  <div id="container">
-    <table class="table table-responsive table-bordered">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="pupppy in puppies track by $index">
-          <!-- <td>{{puppy.photo}}</td> -->
-          <td>{{puppy.name}}</td>
-          <td>{{puppy.price | currency}}</td>
-          <td>
-            <button id="delete" ng-click="deletePuppy(puppy.id)" class="btn">
-              <span class="glyphicon glyphicon-remove"></span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>  
-  </div>
+<div id="container2">
+  <div id="detailView" ng-show="viewPuppy">
+    <div id="detailHeader">Details</div>
+    <div class="row">
+      <input id="image" type="img" placeholder="Puppy Picture" ng-model="viewPuppy.photo">
+      <div id="photo"></div>
+      <label for="">Name:</label>
+      <input id="name" type="text" placeholder="Name" ng-model="viewPuppy.name">
+      <label for="">Price:</label>
+      <input id="price" type="number" placeholder="Price" ng-model="viewPuppy.price">
+    </div>
+    <div class="row">
+      <label for="">Age:</label>
+      <input id=age"" type="number" placeholder="Age" ng-model="viewPuppy.age">
+      <label for="">Breed:</label>
+      <input id="breed" type="text" placeholder="Breed" ng-model="viewPuppy.breed">
+      <label for="">Size:</label>
+      <input id="size" type="number" placeholder="Size" ng-model="viewPuppy.size">
+    </div>
+    <button id="delete" ng-click="deletePuppy(viewPuppy.id)">
+    Delete</button>
+    <button ng-click="update(viewPuppy)">Save</button>
 
-<div id="detailView" ng-show="detailView">
-  <div id="detailHeader">Details</div>
-  <table class="table table-responsive table-bordered">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-        <tr>
-          <th>Age</th>
-          <th>Breed</th>
-          <th>Size</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="pupppy in puppies track by $index">
-          <!-- <td>{{puppy.photo}}</td> -->
-          <td>{{puppy.name}}</td>
-          <td>{{puppy.price | currency}}</td>
-          <td>
-          </td>
-        </tr>
-        <tr ng-repeat="puppy in puppies track by $index">
-          <td>{{puppy.age}}</td>
-          <td>{{puppy.breed}}</td>
-          <td>{{puppy.size}}</td>
-        </tr>
-      </tbody>
-    </table>  
+    <button ng-click="seeLess()">See Less</button>
+  </div>
 </div>
-
 

@@ -15,24 +15,18 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:id', function(req, res) {
-  var id = req.params.id;
-  Puppy.get(function(err, puppies) {
-    if(err) {
-      res.status(400).send(err);
-      return;
-    }
-    var puppy = puppies.find(function(obj) {
-      return obj.id === id;
-    });
+router.put('/', (req, res) => {
 
-    if(!puppy) {
-      res.status(404).send({err: "Puppy not found"});
-      return;
-    }
-    res.send(puppy);
-  });
-});
+  Puppy.put(req.body, function(err, puppies){
+    if(err){
+     res.status(400).send(err);
+     return;
+   }
+   res.send(puppies);
+ });
+})
+
+
 
 router.post('/', (req, res) => {
   var newPuppy = req.body;
@@ -56,13 +50,6 @@ router.delete('/:id', function(req, res){
     }
   })
 })
-
-
-
-
-
-
-
 
 
 

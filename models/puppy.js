@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var uuid = require('uuid');
 
-var puppyFilePath = path.join(__dirname, "../data/puppy.json")
+var puppyFilePath = path.join(__dirname, "../data/puppies.json")
 
 
 exports.write = function(puppies, cb) {
@@ -23,19 +23,37 @@ exports.create = function(newPuppy, cb) {
 
   this.get((err, puppies) => {
     if(err) return cb(err);
-    newPuppys.id = uuid();
+    newPuppy.id = uuid();
     puppies.push(newPuppy);
     this.write(puppies, function(err){
-      cb(err, newShoe);
+      cb(err, newPuppy);
     });
   });
 };
 
+
+exports.put = function(editPuppy, cb){
+  this.get((err, puppies) => {
+    if(err) return cb(err);
+    for (var i = 0; i < puppies.length; i++){
+      if(editPuppy.id === puppies[i].id){
+        puppies[i] = editPuppy
+      }
+    }
+    this.write(puppies, function(err){
+      cb(err, editPuppy);
+    });
+  })
+
+}
+
 exports.delete = function(id, cb)  {
   this.get((err, puppies) => {
+    console.log('passed')
     var length = puppies.length
-    puppies = puppies.filter(function(puppy){
-      return puppy.id !== id;
+    puppies = puppies.filter(function(viewPuppy){
+      console.log('second')
+      return viewPuppy.id !== id;
     });
     if(length === puppies.length) {
       cb( {err: "Puppy not found"});
