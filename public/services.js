@@ -13,7 +13,6 @@ app.service('PuppyService', function($http){
   }
 
   this.delete = function(puppy) {
-    console.log('delpuppy', puppy)
    return $http.delete(`/puppies/${puppy.id}`)
 
 

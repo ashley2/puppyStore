@@ -45,20 +45,35 @@ app.controller('puppyCtrl', function($scope, PuppyService){
     })
   }
 
+  $scope.confirmDelete = function(){
+    swal({   title: "Are you sure?",   
+      text: "You will not be able to recover this puppies info!",
+      type: "warning",
+      showCancelButton: true, 
+      confirmButtonColor: "#DD6B55", 
+      confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false },
+    }
 
+    $scope.deletePuppy = function(puppy){
+      $scope.confirmDelete()
 
-  $scope.deletePuppy = function(puppy){
-    console.log(1)
-    PuppyService.delete(puppy)
-    console.log(2)
-    .then(function(puppy){
+      if confirmDelete === false){
+      PuppyService.delete(puppy)
+    }
+
+    .then(function(){
     //success
-    console.log(3)
     var index = $scope.puppies.indexOf(puppy);
     $scope.puppies.splice(index, 1);
+    $scope.viewPuppy = null;
+
 
   }, function(err){
     console.log('err ' , err);
+    swal("Deleted!",
+     "Your puppy has been deleted.",
+     "success"); 
   })
   }
 })
