@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', function(req, res) {
   var id = req.params.id;
-  {Puppy}.get(function(err, puppies) {
+  Puppy.get(function(err, puppies) {
     if(err) {
       res.status(400).send(err);
       return;

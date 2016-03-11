@@ -1,6 +1,6 @@
 var app = angular.module('puppyApp');
 
-app.controller('puppyCtrl', function($scope, ShoeService){
+app.controller('puppyCtrl', function($scope, PuppyService){
   console.log('hi');
 
   PuppyService.fetch()
@@ -32,6 +32,7 @@ app.controller('puppyCtrl', function($scope, ShoeService){
     console.log('err ' , err);
   })
 }
+})
 
 // $scope.editShoe = function(shoe){
 //   $scope.shoeToEdit = angular.copy(shoe); ///makes it so you dont change the original 

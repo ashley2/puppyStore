@@ -8,8 +8,8 @@ app.service('PuppyService', function($http){
     return $http.get('/puppies')
   };
 
-  this.create = function(newShoe){
-    return $http.post('/puppies', newShoe);
+  this.create = function(newPuppy){
+    return $http.post('/puppies', newPuppy);
   }
 
   this.remove = function() {
@@ -17,10 +17,10 @@ app.service('PuppyService', function($http){
 
  };
 
- this.update = function(editShoe)
+ this.update = function(editPuppy){
 
-});
-
+};
+})
 // app.factory('shoeFactory', function($http){
 //   return {
 //     fetch: function(){

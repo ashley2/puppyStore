@@ -28,7 +28,7 @@ exports.create = function(newPuppy, cb) {
     this.write(puppies, function(err){
       cb(err, newShoe);
     });
-  };
+  });
 };
 
 exports.delete = function(id, cb)  {
