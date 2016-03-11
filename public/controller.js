@@ -46,9 +46,9 @@ app.controller('puppyCtrl', function($scope, PuppyService){
   }
 
 
-    
 
-    $scope.deletePuppy = function(puppy){
+
+  $scope.deletePuppy = function(puppy){
     swal({   title: "Are you sure?",   
       text: "You will not be able to recover this puppies info!",
       type: "warning",
@@ -56,24 +56,22 @@ app.controller('puppyCtrl', function($scope, PuppyService){
       confirmButtonColor: "#DD6B55", 
       confirmButtonText: "Yes, delete it!",
       closeOnConfirm: false },
-
-      if (closeOnConfirm === true){
-      PuppyService.delete(puppy)
-    }
-
-    .then(function(){
+      function(){   
+        PuppyService.delete(puppy)
+        .then(function(){
     //success
     var index = $scope.puppies.indexOf(puppy);
     $scope.puppies.splice(index, 1);
     $scope.viewPuppy = null;
-
-
-  }, function(err){
-    console.log('err ' , err);
     swal("Deleted!",
      "Your puppy has been deleted.",
      "success"); 
+
   })
+
+      }, function(err){
+        console.log('err ' , err);
+      })
   }
 })
 
