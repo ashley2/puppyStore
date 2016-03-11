@@ -45,7 +45,10 @@ app.controller('puppyCtrl', function($scope, PuppyService){
     })
   }
 
-  $scope.confirmDelete = function(){
+
+    
+
+    $scope.deletePuppy = function(puppy){
     swal({   title: "Are you sure?",   
       text: "You will not be able to recover this puppies info!",
       type: "warning",
@@ -53,12 +56,8 @@ app.controller('puppyCtrl', function($scope, PuppyService){
       confirmButtonColor: "#DD6B55", 
       confirmButtonText: "Yes, delete it!",
       closeOnConfirm: false },
-    }
 
-    $scope.deletePuppy = function(puppy){
-      $scope.confirmDelete()
-
-      if confirmDelete === false){
+      if (closeOnConfirm === true){
       PuppyService.delete(puppy)
     }
 
